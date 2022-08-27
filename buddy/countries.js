@@ -7,14 +7,20 @@ const loadCountries = () => {
 loadCountries();
 
 const displayCountry = countries => {
-    for (const country of countries) {
-        console.log(country);
-    }
-    const countryisDiv = document.getElementById('country')
+    // for (const country of countries) {
+    //     console.log(country);
+    // }
+    const countryisContainer = document.getElementById('country')
     countries.forEach(country => {
-        const h3 = document.createElement('h3');
-        h3.innerText = country.name;
-        countryisDiv.appendChild(h3)
+
+        const countryDiv = document.createElement('div');
+        countryDiv.classList.add('countrySty')
+        countryDiv.innerHTML = `
+        <h3> ${country.name} </h3>
+        <p> ${country.capital}</p >
+            <button onclick="">Details</button>
+    `;
+        countryisContainer.appendChild(countryDiv);
     });
 
 }
