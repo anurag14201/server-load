@@ -18,9 +18,20 @@ const displayCountry = countries => {
         countryDiv.innerHTML = `
         <h3> ${country.name} </h3>
         <p> ${country.capital}</p >
-            <button onclick="">Details</button>
+            <button onclick="loadCountryName('${country.name}')">Details</button>
     `;
         countryisContainer.appendChild(countryDiv);
     });
 
+}
+
+const loadCountryName = name => {
+    const url = 'https://restcountries.com/v2/name/${name}';
+    fetch(url)
+        .then(res => res.json())
+        .then(name => displayCountryName(name[0]));
+
+}
+const displayCountryName = country => {
+    const countryInfo = document.getElementById('country-detils')
 }
