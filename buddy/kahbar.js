@@ -3,14 +3,21 @@ const searchFood = () => {
     const valueFood = searchFoodInput.value;
     searchFoodInput.value = '';
     // console.log(valueFood);
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${valueFood}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displaySearchMeals(data.meals));
-    // console.log(url)
+    if (valueFood == '') {
+
+    }
+    else {
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${valueFood}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displaySearchMeals(data.meals));
+        // console.log(url)
+    }
+
 }
 const displaySearchMeals = meals => {
     const searchResult = document.getElementById('search-result');
+    searchResult.textContent = '';
     meals.forEach(meal => {
         console.log(meal);
         const div = document.createElement('div');
@@ -36,17 +43,18 @@ const loadMealDetil = mealId => {
 }
 
 const displayMealDetiles = meal => {
-    const mealDetils = document.getElementById('meal-detil');
-    const mealDiv = document.createElement('div');
+    const mealDetils = document.getElementById('meal-detils');
+    // mealDetils.textContent = '';
+    const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
-                <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+                <img src="${meal.strMealThumb}" alt="...">
                <div class="card-body"> 
                     <h5 class="card-title">${meal.strMeal}</h5>
                     <p class="card-text">${meal.strInstructions.slice(0, 250)}</p>
                     <a href="${meal.strYoutube}" class="btn btn-primary">Go somewhere</a>
                 </div>
     `;
-    mealDetils.appendChild(mealDiv);
+    mealDetils.appendChild(div);
 
 }
