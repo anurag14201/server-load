@@ -13,16 +13,24 @@
 <body>
 
     <header>
-        <h1 class="text-center text-success">Find Your Fav Food</h1>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search your Food" aria-label="Recipient's username"
-                aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        <h1 class="text-center text-success">Search Your Favourite Food</h1>
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input id="button-field" type="text" class="form-control " placeholder="Search your Food"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchFood()" class="btn btn-outline-secondary" type="button"
+                id="button-food">Search</button>
         </div>
     </header>
+    <section>
+        <div id="search-result" class="row row-cols-1 row-cols-md-2 g-4">
+
+        </div>
+        </div>
+
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js
     "></script>
-    <script src="buddy/kahbar.js"></script>
+    <script src="kahbar.js"></script>
 </body>
 
 </html>
