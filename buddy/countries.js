@@ -34,4 +34,7 @@ const loadCountryName = name => {
 }
 const displayCountryName = country => {
     const countryInfo = document.getElementById('country-detils')
+    countries.forEach(country => {
+
+    })
 }
